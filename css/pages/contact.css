@@ -1,0 +1,65 @@
+/* ═══════════════════════════════════════════════════
+   PAGE: CONTACT — Inquiry & Engagement
+   ═══════════════════════════════════════════════════ */
+
+/* ─── CONTACT LAYOUT ─────────────────────────────── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 0 64px;
+  align-items: start;
+}
+
+/* ─── CONTACT BLOCK ──────────────────────────────── */
+.contact-block-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.contact-link {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-bottom: 8px;
+}
+.contact-link:last-of-type { margin-bottom: 0; }
+
+.contact-meta {
+  margin-top: 20px;
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.contact-note {
+  margin-top: 28px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-body);
+  max-width: 280px;
+}
+
+/* Prose paragraphs in the right contact column */
+.contact-prose {
+  font-size: 14px;
+  line-height: 1.72;
+  color: var(--text-body);
+  margin-top: 0;
+  margin-bottom: 1.4rem;
+}
+.contact-prose:last-child { margin-bottom: 0; }
+
+/* ─── RESPONSIVE ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+}

@@ -1,0 +1,167 @@
+/* ═══════════════════════════════════════════════════
+   LAYOUT — Zane Davis Portfolio
+   ═══════════════════════════════════════════════════ */
+
+/* ─── CONTAINER ──────────────────────────────────── */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-left: var(--px);
+  padding-right: var(--px);
+}
+
+/* ─── ACCESSIBILITY ──────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  background: var(--text-primary);
+  color: var(--bg);
+  padding: 8px 16px;
+  z-index: 999;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: top var(--transition-fast);
+}
+.skip-link:focus { top: 0; outline: none; }
+
+/* ─── UTILITIES ──────────────────────────────────── */
+.mt-xs { margin-top: 12px; }
+.mt-sm { margin-top: 16px; }
+.mt-md { margin-top: 20px; }
+.mt-lg { margin-top: 28px; }
+.mb-0 { margin-bottom: 0; }
+.mb-sm { margin-bottom: 16px; }
+.mb-lg { margin-bottom: 28px; }
+.pt-md { padding-top: 32px; }
+
+/* ─── NAVIGATION ─────────────────────────────────── */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 2px solid var(--text-primary);
+}
+
+.nav-inner {
+  padding: 0 var(--page-px);
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links a {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-primary);
+  letter-spacing: 0.01em;
+}
+.nav-links a:hover { opacity: 0.6; }
+.nav-links a[aria-current="page"] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ─── PAGE HEADER (interior pages) ───────────────── */
+.page-header {
+  padding-top: 56px;
+  padding-bottom: 44px;
+  padding-left: var(--page-px);
+  padding-right: var(--page-px);
+}
+
+.page-header-label {
+  font-family: var(--sans-condensed);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.page-header-title {
+  font-family: var(--serif);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.page-header-intro {
+  font-size: 14px;
+  line-height: 1.78;
+  color: var(--text-body);
+  max-width: 520px;
+}
+
+/* ─── SECTION ────────────────────────────────────── */
+.section, .cta-section {
+  border-top: 2px solid var(--border);
+  padding-top: 48px;
+  padding-bottom: 52px;
+  padding-left: var(--page-px);
+  padding-right: var(--page-px);
+}
+
+/* Sections own their padding; neutralise .container inside */
+.section .container, .cta-section .container {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.section-label {
+  font-family: var(--sans-condensed);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+/* ─── SITE FOOTER ────────────────────────────────── */
+.site-footer {
+  border-top: 2px solid var(--border);
+}
+
+.footer-inner {
+  padding: 0 var(--page-px);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-copy,
+.footer-notice {
+  font-family: var(--sans-condensed);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}

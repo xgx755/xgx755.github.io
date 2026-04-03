@@ -1,0 +1,80 @@
+/* ═══════════════════════════════════════════════════
+   TOKENS — Zane Davis Portfolio
+   Visual Identity System v1.0
+   ═══════════════════════════════════════════════════ */
+
+/* ─── RESET ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+
+/* ─── DESIGN TOKENS ──────────────────────────────── */
+:root {
+  /* Color */
+  --bg:             #F5F2EC;
+  --text-primary:   #1A1A17;
+  --text-body:      #3A3A37;   /* promoted from hardcoded hex — OD-1 */
+  --text-muted:     #5E5E59;   /* labels, meta — WCAG AA 4.6:1 on --bg */
+  --text-faint:     #6E6E69;   /* footer — WCAG AA 4.5:1 on --bg */
+  --border:         #D6D2CA;
+  --border-light:   #E5E2DB;
+  --nav-border:     #C8C4BC;
+  --accent-green:   #3D7A4E;   /* status dot only — WCAG AA */
+
+  /* Typography */
+  --sans:  'Inter', system-ui, sans-serif;
+  --sans-condensed: 'Archivo Narrow', system-ui, sans-serif;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --mono:  'JetBrains Mono', ui-monospace, monospace;
+
+  /* Layout */
+  --max-w:    660px;   /* activated for long-form prose — OD-2 */
+  --px:       28px;
+  --page-px:  160px;  /* renamed from --nav-px; all sections share this — OD-3 */
+
+  /* Motion — OD-6 */
+  --transition-base: 0.18s ease;
+  --transition-fast: 0.10s ease;
+}
+
+/* ─── BASE ───────────────────────────────────────── */
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+a:hover { opacity: 0.75; }
+
+/* WCAG 2.4.7 — visible keyboard focus */
+:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* Screen-reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

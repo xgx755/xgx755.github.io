@@ -1,0 +1,259 @@
+/* ═══════════════════════════════════════════════════
+   PAGE: CV — Full Professional History
+   ═══════════════════════════════════════════════════ */
+
+/* ─── DOWNLOAD BUTTON ────────────────────────────── */
+.cv-download-btn {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 12px 22px;
+  background: var(--text-primary);
+  color: var(--bg);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid var(--text-primary);
+  transition: background var(--transition-base), color var(--transition-base);
+}
+.cv-download-btn:hover {
+  background: transparent;
+  color: var(--text-primary);
+  opacity: 1;
+}
+
+/* ─── TWO-COLUMN SECTION GRID ────────────────────── */
+.cv-section-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 0 64px;
+  align-items: start;
+}
+
+.cv-section-grid .section-label {
+  margin-bottom: 8px;
+}
+
+.cv-section-date {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ─── WORK ENTRIES ───────────────────────────────── */
+.work-entry {
+  padding-top: 28px;
+  padding-bottom: 28px;
+  border-top: 1px solid var(--border-light);
+}
+.work-entry:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+.work-entry:last-child {
+  padding-bottom: 0;
+}
+
+.work-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+
+.work-entry-title {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.work-entry-dates {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.work-entry-company {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.work-entry-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+.work-entry-bullets {
+  list-style: none;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.work-entry-bullets li {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-body);
+  padding-left: 22px;
+  position: relative;
+}
+
+.work-entry-bullets li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+}
+
+/* ─── EDUCATION ENTRIES ──────────────────────────── */
+.edu-entry {
+  padding: 18px 0;
+  border-top: 1px solid var(--border-light);
+}
+.edu-entry:last-child {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.edu-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 5px;
+}
+
+.edu-entry-degree {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+.edu-entry-year {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.edu-entry-institution {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-body);
+}
+
+/* ─── SIMPLE LIST (Leadership & Service) ─────────── */
+.simple-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.simple-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  padding: 13px 0;
+  border-top: 1px solid var(--border-light);
+  font-size: 14px;
+  color: var(--text-primary);
+}
+.simple-list-item:last-child {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.simple-list-meta {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ─── PUBLICATION ENTRIES ────────────────────────── */
+.pub-entry {
+  padding: 18px 0;
+  border-top: 1px solid var(--border-light);
+}
+.pub-entry:last-child {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.pub-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 5px;
+}
+
+.pub-entry-title {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+.pub-entry-year {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.pub-entry-venue {
+  font-size: 13px;
+  color: var(--text-body);
+  margin-bottom: 6px;
+}
+
+.pub-entry-link {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--text-primary);
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────── */
+@media (max-width: 700px) {
+  .cv-section-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .cv-section-grid .section-label {
+    margin-bottom: 4px;
+  }
+
+  .cv-section-date {
+    margin-bottom: 24px;
+  }
+
+  .work-entry:first-child {
+    padding-top: 24px;
+    border-top: 1px solid var(--border-light);
+  }
+}

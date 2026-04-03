@@ -1,0 +1,328 @@
+/* ═══════════════════════════════════════════════════
+   COMPONENTS — Zane Davis Portfolio
+   ═══════════════════════════════════════════════════ */
+
+/* ─── EXPERTISE GRID ─────────────────────────────── */
+.expertise-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0 48px;
+}
+
+.expertise-card {
+  padding-top: 24px;
+  border-top: 2px solid var(--border-light);
+}
+
+.expertise-num {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.expertise-title {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.expertise-body {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+/* ─── BRIEF ROWS ─────────────────────────────────── */
+.briefs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.brief-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 0 48px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border-light);
+  transition: background var(--transition-base),
+              box-shadow var(--transition-base),
+              padding var(--transition-base);
+  position: relative;
+}
+.brief-row:first-child { border-top: 1px solid var(--border-light); }
+
+.brief-row:hover {
+  background: rgba(210, 205, 195, 0.28);
+  box-shadow: inset 3px 0 0 0 var(--text-primary);
+  padding-left: 20px;
+  padding-right: 20px;
+  cursor: default;
+}
+.brief-row:hover .brief-link { cursor: pointer; }
+
+.brief-report-num {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.brief-title {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.brief-content {
+  padding-top: 2px;
+}
+
+.brief-desc {
+  font-size: 14px;
+  line-height: 1.68;
+  color: var(--text-body);
+  margin-bottom: 14px;
+}
+
+/* ─── TAGS ───────────────────────────────────────── */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 12px;
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 1px;
+  padding: 3px 8px;
+}
+
+/* ─── BRIEF LINK ─────────────────────────────────── */
+.brief-link {
+  font-family: var(--sans-condensed);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--text-primary);
+}
+.brief-link::after {
+  content: ' ↗';
+  font-weight: 400;
+}
+
+/* ─── CREDENTIALS GRID ───────────────────────────── */
+.credentials-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 0 64px;
+  align-items: start;
+}
+
+.credentials-statement {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 14px;
+  color: var(--text-primary);
+}
+
+.credentials-body {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-body);
+}
+
+/* ─── TIMELINE ───────────────────────────────────── */
+.timeline {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.timeline-item:first-child { border-top: 1px solid var(--border-light); }
+
+.timeline-role {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  flex: 1;
+  color: var(--text-primary);
+}
+
+.timeline-dates {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+}
+
+/* ─── STATUS BADGE ───────────────────────────────── */
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 14px;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  flex-shrink: 0;
+}
+
+.status-label {
+  font-family: var(--sans-condensed);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ─── CTA GRID ───────────────────────────────────── */
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 64px;
+  align-items: start;
+}
+
+.cta-headline {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.15;
+  max-width: 650px;
+}
+
+.cta-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  padding-top: 28px;
+}
+
+.cta-contact-link {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cta-contact-link + .cta-contact-link { margin-top: 8px; }
+
+.cta-meta {
+  margin-top: 18px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ─── IMAGES & GALLERIES ─────────────────────────── */
+.brief-gallery {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 4px;
+  max-height: 0;
+  opacity: 0;
+  overflow-y: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+.brief-row:hover .brief-gallery {
+  max-height: 220px;
+  opacity: 1;
+}
+.brief-gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.brief-img {
+  height: 180px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  border: 1px solid var(--border-light);
+  background: var(--bg);
+}
+
+.credentials-img-cluster {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.credentials-img-cluster img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border: 1px solid var(--border-light);
+}
+
+.identity-anchor-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.identity-anchor-grid img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border: 1px solid var(--border-light);
+}
+
+.contact-img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: cover;
+  border: 1px solid var(--border-light);
+  margin-bottom: 24px;
+}

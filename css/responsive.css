@@ -1,0 +1,56 @@
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE — Zane Davis Portfolio
+   Breakpoints: 768px, 560px, 380px
+   ═══════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  :root { --page-px: 40px; }
+
+  .page-header-title { font-size: 36px; }
+
+  .hero .container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 560px) {
+  :root { --px: 20px; --page-px: 20px; }
+
+  /* Nav */
+  .nav-links { gap: 14px; }
+  .nav-links li:nth-child(3),
+  .nav-links li:nth-child(4) { display: none; }
+
+  /* Components */
+  .expertise-grid {
+    grid-template-columns: 1fr;
+    gap: 24px 0;
+  }
+
+  .brief-row {
+    grid-template-columns: 1fr;
+    gap: 12px 0;
+  }
+
+  .credentials-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .cta-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  /* Footer */
+  .footer-notice { display: none; }
+
+  /* Page header */
+  .page-header-title { font-size: 28px; }
+}
+
+@media (max-width: 380px) {
+  /* hero h1 handled in home.css */
+}

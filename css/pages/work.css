@@ -1,0 +1,50 @@
+/* ═══════════════════════════════════════════════════
+   PAGE: WORK — Project Briefs Index
+   ═══════════════════════════════════════════════════ */
+
+/* ─── STAT STRIP ─────────────────────────────────── */
+.stat-strip {
+  display: flex;
+  gap: 0 56px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 40px;
+}
+
+.stat-value {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-desc {
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Re-apply top border on first brief row */
+.briefs-list .brief-row:first-child { border-top: 1px solid var(--border-light); }
+
+/* ─── FOOTER CTA (work page) ─────────────────────── */
+.work-cta-line {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 32px;
+}
+
+.work-cta-line-label {
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@media (max-width: 560px) {
+  .stat-strip { flex-direction: column; gap: 20px; }
+}

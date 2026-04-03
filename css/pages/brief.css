@@ -1,0 +1,186 @@
+/* ═══════════════════════════════════════════════════
+   PAGE: BRIEF — Individual Engagement Brief
+   ═══════════════════════════════════════════════════ */
+
+/* ─── BREADCRUMB ─────────────────────────────────── */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.breadcrumb a {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.breadcrumb a:hover { color: var(--text-primary); opacity: 1; }
+
+.breadcrumb-sep {
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.breadcrumb-current {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* ─── BRIEF PAGE HEADER ──────────────────────────── */
+.brief-page-header {
+  padding-top: 48px;
+  padding-bottom: 52px;
+  padding-left: var(--page-px);
+  padding-right: var(--page-px);
+}
+
+.brief-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.brief-header-num {
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.brief-header-date {
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.10em;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.brief-header-title {
+  font-family: var(--serif);
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  max-width: 700px;
+  margin-bottom: 20px;
+}
+
+.brief-header-agency {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+
+/* ─── NARRATIVE ──────────────────────────────────── */
+.narrative-body p {
+  font-size: 14px;
+  line-height: 1.82;
+  color: var(--text-body);
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+.narrative-body p:last-child { margin-bottom: 0; }
+
+/* ─── OUTCOME STAT CARDS ─────────────────────────── */
+.outcome-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0 48px;
+}
+
+.outcome-card {
+  padding-top: 24px;
+  border-top: 2px solid var(--border-light);
+}
+
+.outcome-value {
+  font-family: var(--serif);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.outcome-label {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-body);
+  margin-bottom: 6px;
+}
+
+.outcome-context {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ─── METHODOLOGY ────────────────────────────────── */
+.methodology-list {
+  list-style: none;
+  counter-reset: methodology;
+  display: flex;
+  flex-direction: column;
+}
+
+.methodology-item {
+  counter-increment: methodology;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 0 20px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.methodology-item:first-child { border-top: 1px solid var(--border-light); }
+
+.methodology-item::before {
+  content: counter(methodology, decimal-leading-zero);
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.10em;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  padding-top: 3px;
+}
+
+.methodology-phase {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+}
+
+.methodology-desc {
+  font-size: 13px;
+  line-height: 1.68;
+  color: var(--text-body);
+}
+
+/* ─── RELATED BRIEFS ─────────────────────────────── */
+.related-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 48px;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .brief-header-title { font-size: 38px; }
+  .outcome-grid { grid-template-columns: 1fr 1fr; gap: 28px 32px; }
+}
+
+@media (max-width: 560px) {
+  .brief-header-title { font-size: 28px; }
+  .outcome-grid { grid-template-columns: 1fr; gap: 28px 0; }
+  .related-grid { grid-template-columns: 1fr; gap: 0; }
+}

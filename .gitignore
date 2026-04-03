@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+*.log
+
+# Local environment files
+.env
+.env.local
+
+# Node modules (if ever used)
+node_modules/
+
+# Internal planning docs (optional — remove these lines if you want them in the repo)
+CONTENT_STRATEGY.md
+site_architecture.md
+visual_identity_system.md
