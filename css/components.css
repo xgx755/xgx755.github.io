@@ -58,14 +58,21 @@
 }
 .brief-row:first-child { border-top: 1px solid var(--border-light); }
 
-.brief-row:hover {
-  background: rgba(210, 205, 195, 0.28);
-  box-shadow: inset 3px 0 0 0 var(--text-primary);
-  padding-left: 20px;
-  padding-right: 20px;
-  cursor: default;
+/* Use @media (hover: hover) so touch devices don't get stuck hover states */
+@media (hover: hover) {
+  .brief-row:hover {
+    background: rgba(210, 205, 195, 0.28);
+    box-shadow: inset 3px 0 0 0 var(--text-primary);
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: default;
+  }
+  .brief-row:hover .brief-link { cursor: pointer; }
+  .brief-row:hover .brief-gallery {
+    max-height: 220px;
+    opacity: 1;
+  }
 }
-.brief-row:hover .brief-link { cursor: pointer; }
 
 .brief-report-num {
   font-family: var(--mono);
@@ -272,10 +279,6 @@
   opacity: 0;
   overflow-y: hidden;
   transition: max-height 0.4s ease, opacity 0.3s ease;
-}
-.brief-row:hover .brief-gallery {
-  max-height: 220px;
-  opacity: 1;
 }
 .brief-gallery::-webkit-scrollbar {
   display: none;

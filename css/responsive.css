@@ -3,17 +3,49 @@
    Breakpoints: 768px, 560px, 380px
    ═══════════════════════════════════════════════════ */
 
+/* ─── NARROW DESKTOP (≤ 960px) ──────────────────── */
+@media (max-width: 960px) {
+  :root { --page-px: 80px; }
+}
+
+/* ─── TABLET (≤ 768px) ──────────────────────────── */
 @media (max-width: 768px) {
   :root { --page-px: 40px; }
 
   .page-header-title { font-size: 36px; }
 
-  .hero .container {
-    grid-template-columns: 1fr;
-    gap: 48px;
+  /* Reduce section vertical padding */
+  .section, .cta-section {
+    padding-top: 40px;
+    padding-bottom: 44px;
   }
+
+  .page-header {
+    padding-top: 44px;
+    padding-bottom: 36px;
+  }
+
+  /* CTA headline scales down */
+  .cta-headline { font-size: 30px; }
+
+  /* Credentials grid stacks earlier on tablets */
+  .credentials-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  /* Expertise grid → 2 columns on tablet */
+  .expertise-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 32px;
+  }
+
+  /* Image grids scale */
+  .identity-anchor-grid img { height: 200px; }
+  .credentials-img-cluster img { height: 160px; }
 }
 
+/* ─── MOBILE (≤ 560px) ──────────────────────────── */
 @media (max-width: 560px) {
   :root { --px: 20px; --page-px: 20px; }
 
@@ -22,7 +54,20 @@
   .nav-links li:nth-child(3),
   .nav-links li:nth-child(4) { display: none; }
 
-  /* Components */
+  /* Section spacing tightens */
+  .section, .cta-section {
+    padding-top: 32px;
+    padding-bottom: 36px;
+  }
+
+  .page-header {
+    padding-top: 36px;
+    padding-bottom: 28px;
+  }
+
+  .section-label { margin-bottom: 24px; }
+
+  /* Components → single column */
   .expertise-grid {
     grid-template-columns: 1fr;
     gap: 24px 0;
@@ -35,13 +80,21 @@
 
   .credentials-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 24px;
   }
 
   .cta-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 20px;
     align-items: start;
+  }
+
+  /* CTA section adjustments */
+  .cta-headline { font-size: 26px; }
+  .cta-right {
+    align-items: flex-start;
+    text-align: left;
+    padding-top: 0;
   }
 
   /* Footer */
@@ -49,8 +102,56 @@
 
   /* Page header */
   .page-header-title { font-size: 28px; }
+  .page-header-label { margin-bottom: 14px; }
+
+  /* Image grids → single column */
+  .identity-anchor-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .identity-anchor-grid img { height: 180px; }
+
+  .credentials-img-cluster {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .credentials-img-cluster img { height: 160px; }
+
+  /* Timeline items stack on very narrow */
+  .timeline-item {
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+  }
+
+  /* Simple list items stack */
+  .simple-list-item {
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+  }
+
+  /* Brief gallery → always visible on touch (no hover) */
+  .brief-gallery {
+    max-height: none;
+    opacity: 1;
+    overflow-x: auto;
+  }
+  .brief-img {
+    height: 140px;
+  }
 }
 
+/* ─── SMALL MOBILE (≤ 380px) ────────────────────── */
 @media (max-width: 380px) {
   /* hero h1 handled in home.css */
+  .cta-headline { font-size: 22px; }
+
+  .section, .cta-section {
+    padding-top: 28px;
+    padding-bottom: 32px;
+  }
+
+  /* Brief images smaller */
+  .brief-img { height: 120px; }
 }

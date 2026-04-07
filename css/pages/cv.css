@@ -257,3 +257,39 @@
     border-top: 1px solid var(--border-light);
   }
 }
+
+@media (max-width: 560px) {
+  /* Work entry headers stack on narrow screens */
+  .work-entry-header {
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+  }
+
+  .work-entry-title { font-size: 16px; }
+
+  /* Education headers stack */
+  .edu-entry-header {
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+  }
+
+  /* Publication headers stack */
+  .pub-entry-header {
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+  }
+
+  /* Simple list items already stacked in responsive.css */
+
+  /* Reduce work entry padding */
+  .work-entry {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .edu-entry { padding: 14px 0; }
+  .pub-entry { padding: 14px 0; }
+}

@@ -60,6 +60,15 @@
 .contact-prose:last-child { margin-bottom: 0; }
 
 /* ─── RESPONSIVE ─────────────────────────────────── */
-@media (max-width: 768px) {
-  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 560px) {
+  .contact-grid { gap: 28px; }
+  .contact-note { max-width: none; }
+  .contact-img { max-width: 260px; }
 }
