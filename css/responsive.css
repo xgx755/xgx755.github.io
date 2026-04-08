@@ -51,7 +51,6 @@
 
   /* Nav */
   .nav-links { gap: 14px; }
-  .nav-links li:nth-child(3),
   .nav-links li:nth-child(4) { display: none; }
 
   /* Section spacing tightens */
