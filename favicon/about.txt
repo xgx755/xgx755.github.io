@@ -1,6 +1,6 @@
 This favicon was generated using the following font:
 
-- Font Title: AR One Sans
+- Font Title: Alegreya SC
 - Font Author: undefined
-- Font Source: https://fonts.gstatic.com/s/aronesans/v5/TUZezwhrmbFp0Srr_tH6fv6RcUejHO_u7GF5aXfv-U2QzBLF6gslWn_9DW03no5mBF4.ttf
+- Font Source: https://fonts.gstatic.com/s/alegreyasc/v25/taiOGmRtCJ62-O0HhNEa-a6o05E5abe_.ttf
 - Font License: undefined)
