@@ -2,7 +2,7 @@
 
 Personal portfolio site for Zane Davis — MPA candidate at UNC-Chapel Hill focused on public sector technology consulting and AI governance.
 
-**Live site:** [zanedavis.com](https://zanedavis.com) *(or wherever this is deployed)*
+**Live site:** [zane-davis.com](https://zane-davis.com)
 
 ---
 
@@ -21,11 +21,12 @@ Zero-dependency, vanilla HTML + CSS. No build tools, no JavaScript frameworks, n
 ```
 /
 ├── index.html          # Homepage
-├── work.html           # Work index
-├── cv.html             # Full CV
-├── contact.html        # Contact
 ├── work/
-│   └── *.html          # Individual project pages
+│   └── index.html      # Work / projects
+├── cv/
+│   └── index.html      # Full CV
+├── contact/
+│   └── index.html      # Contact
 ├── css/
 │   ├── tokens.css      # Design tokens, reset, base styles
 │   ├── layout.css      # Nav, page structure, footer
@@ -57,8 +58,8 @@ The CSS is organized into a strict 5-layer cascade, loaded in this order on ever
 No build step required. Clone the repo and open `index.html` in a browser:
 
 ```bash
-git clone https://github.com/zanedavis/portfolio.git
-cd portfolio
+git clone https://github.com/xgx755/xgx755.github.io.git
+cd xgx755.github.io
 open index.html
 ```
 
