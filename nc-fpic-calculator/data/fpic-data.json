@@ -1,9 +1,9 @@
 {
-  "_readme": "All thresholds, comparators, source links, dates and interface copy live in this file. When the LGC changes a threshold or Kara changes wording, edit only this file. Placeholders in {braces} are filled in by script.js. Each indicator states the comparison that CREATES an FPIC (the guide states thresholds in the avoid-an-FPIC direction). Indicator types: bandedPercent, percentOfBase, value, yesNo.",
+  "_readme": "All thresholds, comparators, source links, dates and interface copy live in this file. When the LGC changes a threshold or the wording changes, edit only this file. Placeholders in {braces} are filled in by script.js. Each indicator states the comparison that CREATES an FPIC (the guide states thresholds in the avoid-an-FPIC direction). Indicator types: bandedPercent, percentOfBase, value, yesNo.",
   "version": "0.5.0",
   "thresholdsAsOf": "September 2026",
   "thresholdsCheckedOn": "September 19, 2026",
-  "draftNotice": "Draft for testing. Thresholds and wording are waiting for final review by Kara Millonzi.",
+  "draftNotice": "",
   "responseDays": 60,
   "unitTypes": {
     "municipality": {
