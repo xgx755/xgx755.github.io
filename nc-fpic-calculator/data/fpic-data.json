@@ -1,0 +1,847 @@
+{
+  "_readme": "All thresholds, comparators, source links, dates and interface copy live in this file. When the LGC changes a threshold or Kara changes wording, edit only this file. Placeholders in {braces} are filled in by script.js. Each indicator states the comparison that CREATES an FPIC (the guide states thresholds in the avoid-an-FPIC direction). Indicator types: bandedPercent, percentOfBase, value, yesNo.",
+  "version": "0.5.0",
+  "thresholdsAsOf": "September 2026",
+  "thresholdsCheckedOn": "September 19, 2026",
+  "draftNotice": "Draft for testing. Thresholds and wording are waiting for final review by Kara Millonzi.",
+  "responseDays": 60,
+  "unitTypes": {
+    "municipality": {
+      "label": "Municipality",
+      "noun": "municipality",
+      "bands": [
+        {
+          "upTo": 100000,
+          "pct": 100,
+          "label": "$100,000 or less"
+        },
+        {
+          "upTo": 999999,
+          "pct": 71,
+          "label": "$100,001 to $999,999"
+        },
+        {
+          "upTo": 9999999,
+          "pct": 34,
+          "label": "$1,000,000 to $9,999,999"
+        },
+        {
+          "upTo": null,
+          "pct": 25,
+          "label": "$10,000,000 or more"
+        }
+      ]
+    },
+    "county": {
+      "label": "County",
+      "noun": "county",
+      "bands": [
+        {
+          "upTo": 100000000,
+          "pct": 20,
+          "label": "$100,000,000 or less"
+        },
+        {
+          "upTo": null,
+          "pct": 16,
+          "label": "more than $100,000,000"
+        }
+      ]
+    }
+  },
+  "drift": {
+    "declines": 3
+  },
+  "links": {
+    "lgcFpic": {
+      "text": "LGC page on FPIs and responses",
+      "url": "https://www.nctreasurer.gov/divisions/state-and-local-government-finance/lgc/local-fiscal-management/annual-audit/financial-performance-indicators-and-responses-lgc"
+    },
+    "myth8": {
+      "text": "The Myth of 8%",
+      "url": "https://www.nctreasurer.gov/blog/2022/07/11/myth-8-lgc-staff-guidance-fund-balance-available"
+    },
+    "article": {
+      "text": "Understanding and Using the LGC's Financial Performance Indicators (Coates' Canons)",
+      "url": "https://canons.sog.unc.edu/blog/2026/09/14/understanding-and-using-the-lgcs-financial-performance-indicators/"
+    },
+    "lgcGuide": {
+      "text": "LGC Financial Performance Indicators Guide",
+      "url": "https://www.nctreasurer.gov/documents/files/slgfdlgc/09-01-26-lgc-meeting-materials/download?attachment"
+    }
+  },
+  "example": {
+    "unitType": "municipality",
+    "unitName": "Example Town",
+    "appropriation": "500,000",
+    "years": [
+      {
+        "label": "2023",
+        "expenditures": "20,000,000",
+        "fba": "9,000,000"
+      },
+      {
+        "label": "2024",
+        "expenditures": "20,000,000",
+        "fba": "7,400,000"
+      },
+      {
+        "label": "2025",
+        "expenditures": "20,000,000",
+        "fba": "6,200,000"
+      }
+    ],
+    "currentLabel": "2026",
+    "values": {
+      "exp": "20,000,000",
+      "fba": "5,400,000",
+      "totalFb": "8,100,000",
+      "priorFb": "8,900,000",
+      "cari": "0.62",
+      "oni": "210,000",
+      "ca": "1,450,000",
+      "cl": "1,200,000",
+      "transfers": "30,000",
+      "wsOpex": "1,500,000",
+      "taxUncollected": "180,000",
+      "taxBudgeted": "4,000,000"
+    },
+    "answers": {
+      "audit": "yes",
+      "reval": "no",
+      "budget": "no",
+      "findings": "no",
+      "foAppointed": "yes",
+      "foBonded": "yes"
+    }
+  },
+  "copy": {
+    "title": "FPIC Calculator",
+    "purpose": "Check your unit against the 17 indicators the Local Government Commission (LGC) uses to decide whether a unit gets a Financial Performance Indicator of Concern (FPIC). Enter only what you have from your audit and skip the rest.",
+    "privacy": "Your numbers stay in your browser.",
+    "noscript": "This calculator needs JavaScript. Your numbers never leave your browser.",
+    "unitTypeLabel": "Unit type",
+    "unitTypeHelp": "The LGC uses different thresholds for municipalities and counties. This affects indicator 1 only.",
+    "unitNameLabel": "Unit name (optional)",
+    "unitNameHelp": "Shown on the printed summary only.",
+    "expendituresLabel": "General Fund expenditures",
+    "fbaLabel": "Fund balance available",
+    "exampleButton": "See an example",
+    "clearButton": "Clear all",
+    "errNotNumber": "Enter a number, such as 20,000,000.",
+    "errExpendituresPositive": "General Fund expenditures must be greater than $0.",
+    "errAppropriationNegative": "Enter 0 or more.",
+    "errYearIncomplete": "Enter both amounts for this year, or leave both blank.",
+    "messageAbove": "Your General Fund is {points} above the level that would create an FPIC, a cushion of {dollars}.",
+    "messageAt": "Your General Fund is exactly at the threshold. A result at or above the threshold does not create an FPIC, but there is no cushion.",
+    "messageBelow": "This result would create an FPIC. It is {dollars} below the threshold ({points}). An FPIC requires a response from your governing board; it does not by itself mean financial distress.",
+    "responseNote": "The board's written response is due to the LGC within {days} days after the auditor presents the audit (20 NCAC 03 .0508).",
+    "barLabel": "Where you are compared with the threshold",
+    "barYou": "Your result",
+    "barThreshold": "Threshold {pct}%",
+    "aboutThreshold": "The LGC uses {pct}% as the point where a response is required for a {noun} with General Fund expenditures of {band}. It is not a recommended target, and the LGC has said there is no state or LGC minimum for fund balance.",
+    "askFpic": "Before you respond, ask two questions. Was this change planned, such as saving for a specific purchase? Is it one-time or recurring? A one-time use of reserves and a recurring gap between revenues and spending can produce the same number, but they call for different responses.",
+    "whatIfHeading": "Budget what-if",
+    "whatIfIntro": "Enter the fund balance your budget plans to appropriate. The scenario subtracts it from fund balance available and from total fund balance, and keeps expenditures the same.",
+    "appropriationLabel": "Planned appropriation of fund balance",
+    "appropriationHelp": "In dollars. Leave blank to skip.",
+    "whatIfEmpty": "Enter a planned appropriation to compare.",
+    "whatIfNeedResult": "Complete the numbers above to run the what-if.",
+    "colMeasure": "Measure",
+    "colBaseline": "Baseline",
+    "colScenario": "After appropriation",
+    "rowFba": "Fund balance available",
+    "rowFbaPct": "Fund balance available %",
+    "rowThreshold": "FPIC threshold",
+    "rowResult": "Result",
+    "rowHeadroom": "Cushion or shortfall",
+    "resultFpic": "FPIC",
+    "resultNoFpic": "No FPIC",
+    "headroomCushion": "{dollars} cushion",
+    "headroomShortfall": "{dollars} shortfall",
+    "headroomNone": "No cushion",
+    "whatIfCross": "This appropriation would move your result from no FPIC to an FPIC, from a cushion of {before} to a shortfall of {after}.",
+    "whatIfShrink": "This appropriation leaves the result above the threshold. The cushion would shrink from {before} to {after}.",
+    "whatIfGrow": "The result is already below the threshold. This appropriation would grow the shortfall from {before} to {after}.",
+    "whatIfOverdraw": "The appropriation is larger than fund balance available, so the scenario shows a negative balance.",
+    "whatIfCaveat": "This is a simple estimate. It assumes nothing else changes during the year. It does not predict your year-end results, and the LGC calculates fund balance available from audited statements.",
+    "trendHeading": "Four-year trend",
+    "trendIntro": "Add up to three prior years. The current year comes from your numbers above.",
+    "trendYear": "Year",
+    "trendYearPlaceholder": "Optional",
+    "trendExpenditures": "General Fund expenditures",
+    "trendFba": "Fund balance available",
+    "trendRowNames": [
+      "Three years ago",
+      "Two years ago",
+      "Last year",
+      "Current year"
+    ],
+    "trendCurrentPlaceholder": "Optional",
+    "trendCurrentNote": "Uses the numbers you entered above.",
+    "trendTableCaption": "Fund balance available by year",
+    "trendColYear": "Year",
+    "trendColExpenditures": "Expenditures",
+    "trendColFba": "Fund balance available",
+    "trendColPct": "% of expenditures",
+    "trendColThreshold": "Threshold",
+    "trendColHeadroom": "Cushion or shortfall",
+    "trendColResult": "Result",
+    "trendNeedMore": "Add at least one prior year to see a chart and trend note.",
+    "trendNeedResult": "Choose a unit type and complete your numbers above to see the trend.",
+    "chartLegendFba": "Fund balance available %",
+    "chartLegendThreshold": "FPIC threshold",
+    "chartLegendFpic": "Year with an FPIC",
+    "chartThreshold": "Threshold",
+    "chartSummary": "Line chart of fund balance available as a percent of General Fund expenditures. {points}. The data table follows.",
+    "driftAbove": "Fund balance available has fallen {n} years in a row, from {from} ({fromYear}) to {to} ({toYear}). It is still above the threshold, but the direction is worth a look.",
+    "driftBelow": "Fund balance available has fallen {n} years in a row, from {from} ({fromYear}) to {to} ({toYear}), and the current result is below the threshold.",
+    "printHeading": "Summary for your board or manager",
+    "printButton": "Print this summary",
+    "printPrepared": "Prepared {date}",
+    "printUnit": "Unit",
+    "printUnitType": "Unit type",
+    "printAppropriation": "Planned appropriation",
+    "printNone": "None entered",
+    "footerSource": "Thresholds: {guideLink}, Tables 1 to 3. Thresholds as of {asOf}, checked against the guide on {checked}. The LGC may change its thresholds, so check the {lgcLink} for the current guide. See also {articleLink}.",
+    "footerDisclaimer": "Educational tool, not an LGC determination. An FPIC is a flag for attention, not a finding of financial distress, and this tool cannot verify your yes or no answers.",
+    "footerLinks": "Related: {myth8Link}.",
+    "eyebrow": "NC Finance Connect | UNC School of Government",
+    "errTooLarge": "That number is too large. Enter whole dollars, such as 20,000,000.",
+    "trendShortNames": [
+      "3 years ago",
+      "2 years ago",
+      "Last year",
+      "Current year"
+    ],
+    "trendAddYears": "Add prior years (optional)",
+    "promptEnter": "Enter {name} to see a result.",
+    "promptUnit": "Choose a unit type to see a result.",
+    "createsWhen": "FPIC if:",
+    "why": "Details",
+    "whySource": "Source: {guideLink}, {ref}.",
+    "yes": "Yes",
+    "no": "No",
+    "chipFpic": "Would create an FPIC",
+    "chipOk": "No FPIC on this indicator",
+    "chipUnchecked": "Not checked",
+    "summaryHeading": "Summary",
+    "summaryChecked": "{checked} of {total} checked",
+    "summaryFpic": "{fpic} would create an FPIC",
+    "summaryUnchecked": "{unchecked} not checked",
+    "summaryNone": "No FPICs on the {checked} indicators you checked.",
+    "summaryNoneOne": "No FPIC on the 1 indicator you checked.",
+    "summaryEmpty": "Nothing checked yet. Enter what you have; skip the rest.",
+    "summaryFpicList": "Would create an FPIC:",
+    "nextHeading": "What happens next",
+    "nextLgcLink": "Read the LGC page on FPIs and responses",
+    "errBasePositive": "Enter an amount greater than $0.",
+    "errRatio": "Enter a ratio, such as 0.62.",
+    "errNegative": "Enter 0 or more.",
+    "tableNumber": "#",
+    "tableIndicator": "Indicator",
+    "tableValue": "Your value",
+    "tableThreshold": "Threshold",
+    "tableStatus": "Status",
+    "tableCaption": "Results for all indicators",
+    "tableNoValue": "—",
+    "whatIfRowTotalFb": "Total fund balance",
+    "whatIfRowChange": "Change in total fund balance",
+    "whatIfRowResult1": "Result, indicator 1",
+    "whatIfRowResult2": "Result, indicator 2",
+    "whatIfRowResult3": "Result, indicator 3",
+    "whatIfRow2Cross": "The appropriation would also create an FPIC on indicator 2, appropriated fund balance, because total fund balance would fall from the prior year-end.",
+    "whatIfRow3Cross": "The appropriation would also create an FPIC on indicator 3, because total fund balance would be 0 or less.",
+    "whatIfSummary": "Test a budget decision",
+    "trendSummary": "See your trend",
+    "printAsOf": "Thresholds as of {asOf}. Educational tool, not an LGC determination.",
+    "pointsAbove": "above",
+    "pointsBelow": "below",
+    "stepsLabel": "Steps",
+    "steps": [
+      "Choose your unit type",
+      "Enter what you have",
+      "Read your results"
+    ],
+    "step1Heading": "1. Your unit",
+    "step2Heading": "2. Enter what you have",
+    "step2Intro": "Open a section and fill in the rows you can. Results update as you type. A row you leave blank is not checked.",
+    "exampleBanner": "You are looking at example numbers, not yours.",
+    "exampleLabel": "Example results",
+    "panelHeading": "3. Your results",
+    "panelEmpty": "Enter a number in any row to see a result. You can skip rows you do not have.",
+    "headlineFpic": "{fpic} of {total} would create an FPIC",
+    "headlineNone": "No FPIC on the {checked} indicators you entered",
+    "headlineNoneOne": "No FPIC on the 1 indicator you entered",
+    "tallyFpic": "{n} would create an FPIC",
+    "tallyOk": "{n} no FPIC",
+    "tallyUnchecked": "{n} not checked",
+    "tallyNa": "{n} not applicable",
+    "panelNote": "Your yes and no answers are your own. This tool cannot verify them, and it checks only the rows you fill in.",
+    "panelListLabel": "All {total} indicators",
+    "panelToggleOpen": "View all {total}",
+    "panelToggleClose": "Hide results",
+    "chipNa": "Not applicable",
+    "chipFpicShort": "FPIC",
+    "chipOkShort": "No FPIC",
+    "chipUncheckedShort": "Not checked",
+    "chipNaShort": "N/A",
+    "ruleLabel": "FPIC if:",
+    "officialLabel": "LGC name:",
+    "groupEntered": "{entered} of {total} entered",
+    "groupFpic": "{n} FPIC",
+    "groupNa": "Not applicable",
+    "waterQuestion": "Does your unit run a water or sewer fund?",
+    "waterNaNote": "Indicators 4 to 8 will be marked not applicable and left out of your results.",
+    "goFurtherHeading": "Go further (optional)",
+    "goFurtherIntro": "Two extra tools that use your General Fund numbers.",
+    "whatIfCardTitle": "Test a budget decision",
+    "whatIfCardText": "See what a planned use of fund balance would do to indicators 1 to 3.",
+    "trendCardTitle": "See your trend",
+    "trendCardText": "Compare up to four years of fund balance available, with a chart and a note if it keeps falling.",
+    "toolOpen": "Open",
+    "toolClose": "Close",
+    "nextHeadingQuiet": "What happens if an indicator creates an FPIC?",
+    "termsLink": "Terms used here",
+    "termsHeading": "Terms used here",
+    "terms": [
+      {
+        "term": "LGC",
+        "def": "Local Government Commission, the state body that reviews every unit’s annual audit."
+      },
+      {
+        "term": "FPI",
+        "def": "Financial Performance Indicator. A number from your audited statements with a threshold attached."
+      },
+      {
+        "term": "FPIC",
+        "def": "Financial Performance Indicator of Concern. An indicator outside its threshold. Your governing board must send the LGC a written response."
+      },
+      {
+        "term": "Available fund balance (FBA)",
+        "def": "The part of the General Fund’s reserves that is available to spend. Enter it from your audit; the tool does not calculate it."
+      },
+      {
+        "term": "Cushion and shortfall",
+        "def": "Dollars above (cushion) or below (shortfall) the point where an indicator would create an FPIC."
+      }
+    ],
+    "panelEmptyHead": "Your results will appear here",
+    "tagline": "See which financial indicators the state would flag, before your audit is reviewed.",
+    "welcomeHeading": "Check your unit against 17 state indicators",
+    "welcomeSteps": [
+      {
+        "title": "Tell us your unit",
+        "text": "Municipality or county."
+      },
+      {
+        "title": "Enter your numbers",
+        "text": "From your audited financial statements. Skip anything you do not have."
+      },
+      {
+        "title": "See your results",
+        "text": "Which indicators would create an FPIC, and by how much."
+      }
+    ],
+    "needTitle": "Have this ready",
+    "needText": "Your most recent audited financial statements.",
+    "startButton": "Start",
+    "backButton": "Back",
+    "nextButton": "Continue",
+    "resultsButton": "See results",
+    "startOver": "Start over",
+    "stepOf": "Step {n} of {total}",
+    "stepUnit": "Your unit",
+    "stepResults": "Results",
+    "progressLabel": "Progress",
+    "unitDesc": {
+      "municipality": "A city, town or village",
+      "county": "A county government"
+    },
+    "clearExample": "Clear and start with mine",
+    "miniChecked": "{checked} of {total} checked",
+    "miniFpic": "{fpic} would create an FPIC",
+    "waterHint": "Choose Yes to enter your water and sewer numbers. Choose No to skip this step.",
+    "resultsHeading": "Your results",
+    "resultsEmpty": "Nothing to show yet. Enter at least one number and your results will appear here.",
+    "resultsEmptyButton": "Go to your unit",
+    "statFpic": "would create an FPIC",
+    "statOk": "no FPIC",
+    "statUnchecked": "not checked",
+    "statNa": "not applicable",
+    "resultsFpicHeading": "Would create an FPIC",
+    "resultsOkSummary": "No FPIC on {n} indicators",
+    "resultsOkSummaryOne": "No FPIC on 1 indicator",
+    "resultsUncheckedSummary": "{n} not checked yet",
+    "resultsNaNote": "Indicators 4 to 8 (water and sewer) are marked not applicable.",
+    "reviewButton": "Review",
+    "addButton": "Add",
+    "printHelp": "One page for your manager or board."
+  },
+  "groups": [
+    {
+      "id": "general",
+      "label": "General Fund",
+      "indicators": [
+        "fba",
+        "apprFb",
+        "totalFb"
+      ],
+      "intro": "Your main operating fund. Indicators 1 to 3.",
+      "open": true,
+      "short": "General Fund"
+    },
+    {
+      "id": "water",
+      "label": "Water and sewer fund",
+      "summary": "Only if your unit has a water or sewer fund",
+      "indicators": [
+        "cari",
+        "oni",
+        "quick",
+        "transfers",
+        "cashPct"
+      ],
+      "intro": "Only if your unit runs a water or sewer fund. Indicators 4 to 8.",
+      "open": false,
+      "short": "Water and sewer"
+    },
+    {
+      "id": "other",
+      "label": "Other checks",
+      "indicators": [
+        "audit",
+        "taxes",
+        "reval",
+        "budget",
+        "findings",
+        "foAppointed",
+        "foBonded",
+        "debt",
+        "auditorOther"
+      ],
+      "intro": "Property taxes, audit results and legal requirements. Indicators 9 to 17.",
+      "open": true,
+      "short": "Other checks"
+    }
+  ],
+  "inputs": {
+    "exp": {
+      "label": "General Fund expenditures",
+      "kind": "money",
+      "base": true,
+      "help": "Use the same expenditures figure the LGC uses in your audit."
+    },
+    "fba": {
+      "label": "Fund balance available",
+      "kind": "money",
+      "signed": true,
+      "help": "Enter fund balance available from your audit. The tool does not calculate it."
+    },
+    "priorFb": {
+      "label": "Total fund balance at the end of the prior year",
+      "kind": "money",
+      "signed": true,
+      "help": "We compare it with this year's total fund balance (row 3)."
+    },
+    "totalFb": {
+      "label": "General Fund total fund balance at year-end",
+      "kind": "money",
+      "signed": true,
+      "help": "May be negative."
+    },
+    "cari": {
+      "label": "Capital assets condition ratio",
+      "kind": "ratio"
+    },
+    "oni": {
+      "label": "Operating net income",
+      "kind": "money",
+      "signed": true
+    },
+    "ca": {
+      "label": "Current assets",
+      "kind": "money"
+    },
+    "cl": {
+      "label": "Current liabilities",
+      "kind": "money",
+      "base": true
+    },
+    "transfers": {
+      "label": "Transfers-in",
+      "kind": "money"
+    },
+    "wsOpex": {
+      "label": "Operating expenses",
+      "kind": "money",
+      "base": true
+    },
+    "cash": {
+      "label": "Unrestricted cash",
+      "kind": "money"
+    },
+    "wsExpenses": {
+      "label": "Total expenses",
+      "kind": "money",
+      "base": true
+    },
+    "taxUncollected": {
+      "label": "Uncollected budgeted ad valorem taxes",
+      "kind": "money"
+    },
+    "taxBudgeted": {
+      "label": "Budgeted ad valorem taxes",
+      "kind": "money",
+      "base": true
+    }
+  },
+  "indicators": {
+    "fba": {
+      "id": "fba",
+      "number": 1,
+      "label": "Fund balance available (FBA) as a percentage of expenditures",
+      "shortLabel": "Fund balance available (FBA) %",
+      "plainLabel": "Available reserves vs. spending",
+      "type": "bandedPercent",
+      "inputs": [
+        "exp",
+        "fba"
+      ],
+      "uses": [
+        "exp",
+        "fba"
+      ],
+      "comparator": "lt",
+      "display": "Fund balance available as a percent of expenditures: {value}",
+      "thresholdTextChecked": "{pct}% of expenditures",
+      "fpicWhen": "Fund balance available is below the threshold percentage of General Fund expenditures for your unit type and size",
+      "thresholdText": "By unit type and size",
+      "why": "FBA is the part of your reserves you can appropriate. It gives you cash flow, a cushion for emergencies and unexpected costs, and room when revenues decline. The LGC sets a threshold by unit size. It is the point where a response is required, not a recommended level.",
+      "guideRef": "Table 1"
+    },
+    "apprFb": {
+      "id": "apprFb",
+      "number": 2,
+      "label": "Appropriated fund balance (change in fund balance)",
+      "shortLabel": "Appropriated fund balance (change)",
+      "plainLabel": "Did total fund balance grow this year?",
+      "type": "value",
+      "inputs": [
+        "priorFb"
+      ],
+      "uses": [
+        "totalFb",
+        "priorFb"
+      ],
+      "formula": "difference",
+      "comparator": "lte",
+      "threshold": 0,
+      "valueFormat": "dollars",
+      "display": "Change in total fund balance: {value}",
+      "exactlyMsg": "No change in total fund balance would create an FPIC. The change must be positive.",
+      "fpicWhen": "Total fund balance did not grow from the prior year-end (a change of 0 or less)",
+      "thresholdText": "Positive change",
+      "why": "Appropriating fund balance to cover operating losses can point to an ongoing gap. If the pattern continues, your available reserves decline.",
+      "guideRef": "Table 1"
+    },
+    "totalFb": {
+      "id": "totalFb",
+      "number": 3,
+      "label": "Total fund balance",
+      "shortLabel": "Total fund balance",
+      "plainLabel": "Is total General Fund balance above zero?",
+      "type": "value",
+      "inputs": [
+        "totalFb"
+      ],
+      "uses": [
+        "totalFb"
+      ],
+      "formula": "single",
+      "comparator": "lte",
+      "threshold": 0,
+      "valueFormat": "dollars",
+      "exactlyMsg": "A total fund balance of exactly $0 would create an FPIC. It must be positive.",
+      "fpicWhen": "Total fund balance is 0 or less",
+      "thresholdText": "Positive",
+      "why": "A deficit means your revenues and other receipts have not been enough to support operations.",
+      "guideRef": "Table 1"
+    },
+    "cari": {
+      "id": "cari",
+      "number": 4,
+      "label": "Capital assets condition ratio",
+      "shortLabel": "Capital assets condition ratio",
+      "plainLabel": "Condition of water and sewer assets",
+      "type": "value",
+      "inputs": [
+        "cari"
+      ],
+      "uses": [
+        "cari"
+      ],
+      "formula": "single",
+      "comparator": "lt",
+      "threshold": 0.5,
+      "valueFormat": "ratio",
+      "valueDecimals": 2,
+      "help": "The ratio from your water and sewer statements, for example 0.62.",
+      "exactlyMsg": "A ratio of exactly 0.50 does not create an FPIC.",
+      "fpicWhen": "The ratio is below 0.50",
+      "thresholdText": "0.50 or greater",
+      "why": "The ratio estimates how much useful life your assets have left. A value below 0.50 can mean assets will need replacing soon.",
+      "guideRef": "Table 2"
+    },
+    "oni": {
+      "id": "oni",
+      "number": 5,
+      "label": "Operating net income, excluding depreciation, including debt service principal and interest",
+      "shortLabel": "Operating net income",
+      "plainLabel": "Does the utility cover its costs and debt?",
+      "type": "value",
+      "inputs": [
+        "oni"
+      ],
+      "uses": [
+        "oni"
+      ],
+      "formula": "single",
+      "comparator": "lte",
+      "threshold": 0,
+      "valueFormat": "dollars",
+      "help": "Leave out depreciation. Include debt principal and interest. May be negative.",
+      "exactlyMsg": "Operating net income of exactly $0 would create an FPIC. It must be greater than zero.",
+      "fpicWhen": "Operating net income is 0 or less",
+      "thresholdText": "Greater than zero",
+      "why": "A zero or negative amount means your rates are not covering operating costs and debt service.",
+      "guideRef": "Table 2"
+    },
+    "quick": {
+      "id": "quick",
+      "number": 6,
+      "label": "Quick ratio",
+      "shortLabel": "Quick ratio",
+      "plainLabel": "Can the utility pay short-term bills?",
+      "type": "value",
+      "inputs": [
+        "ca",
+        "cl"
+      ],
+      "uses": [
+        "ca",
+        "cl"
+      ],
+      "formula": "ratio",
+      "comparator": "lt",
+      "threshold": 1,
+      "valueFormat": "ratio",
+      "valueDecimals": 1,
+      "help": "Read both from the fund's statement of net position.",
+      "display": "Quick ratio: {value}",
+      "exactlyMsg": "A quick ratio of exactly 1 does not create an FPIC.",
+      "fpicWhen": "Current assets divided by current liabilities is below 1",
+      "thresholdText": "1 or greater",
+      "why": "The quick ratio measures liquidity. Below 1 means current liabilities exceed unrestricted cash and investments plus accounts receivable, and the fund may struggle to meet expenses. If that continues, the fund may not be sustainable.",
+      "guideRef": "Table 2"
+    },
+    "transfers": {
+      "id": "transfers",
+      "number": 7,
+      "label": "Transfers-in to support operations",
+      "shortLabel": "Transfers-in to support operations",
+      "plainLabel": "Reliance on transfers from other funds",
+      "type": "percentOfBase",
+      "inputs": [
+        "transfers",
+        "wsOpex"
+      ],
+      "uses": [
+        "transfers",
+        "wsOpex"
+      ],
+      "comparator": "gte",
+      "threshold": 3,
+      "valueFormat": "percent",
+      "help": "Transfers from other funds that support operations.",
+      "display": "Transfers-in as a percent of operating expenses: {value}",
+      "exactlyMsg": "Transfers-in of exactly 3% of operating expenses would create an FPIC.",
+      "fpicWhen": "Transfers-in are 3% or more of the fund’s operating expenses",
+      "thresholdText": "Less than 3%",
+      "why": "Water and sewer rates should cover the fund's operating expenses without operating subsidies or transfers from other funds.",
+      "guideRef": "Table 2"
+    },
+    "cashPct": {
+      "id": "cashPct",
+      "number": 8,
+      "label": "Unrestricted cash to total expenses ratio",
+      "shortLabel": "Unrestricted cash to total expenses",
+      "plainLabel": "Cash on hand vs. expenses",
+      "type": "percentOfBase",
+      "inputs": [
+        "cash",
+        "wsExpenses"
+      ],
+      "uses": [
+        "cash",
+        "wsExpenses"
+      ],
+      "comparator": "lte",
+      "threshold": 16,
+      "valueFormat": "percent",
+      "help": "Include debt principal and interest in expenses. Leave out depreciation.",
+      "display": "Unrestricted cash as a percent of total expenses: {value}",
+      "exactlyMsg": "Unrestricted cash of exactly 16% would create an FPIC.",
+      "fpicWhen": "Unrestricted cash is 16% or less of total expenses",
+      "thresholdText": "Greater than 16%",
+      "why": "This shows how many months of expenses your unrestricted cash covers at year-end. 16% is roughly two months.",
+      "guideRef": "Table 2"
+    },
+    "audit": {
+      "id": "audit",
+      "number": 9,
+      "label": "Date audited financial statements were submitted to the LGC",
+      "shortLabel": "Audit submitted to the LGC",
+      "plainLabel": "Was the audit submitted on time?",
+      "type": "yesNo",
+      "fpicAnswer": "no",
+      "question": "Did you submit your audit to the LGC by December 31?",
+      "fpicWhen": "You did not submit the audit by December 31",
+      "thresholdText": "By December 31",
+      "why": "The governing body is responsible for making the annual audit available to the public on time.",
+      "guideRef": "Table 3",
+      "help": "The guide sets December 31 for units with a June 30 year-end. If your year-end differs, skip this row."
+    },
+    "taxes": {
+      "id": "taxes",
+      "number": 10,
+      "label": "Amount of budgeted ad valorem tax (including motor vehicles) uncollected",
+      "shortLabel": "Uncollected budgeted ad valorem taxes",
+      "plainLabel": "Property taxes not collected",
+      "type": "percentOfBase",
+      "inputs": [
+        "taxUncollected",
+        "taxBudgeted"
+      ],
+      "uses": [
+        "taxUncollected",
+        "taxBudgeted"
+      ],
+      "comparator": "gte",
+      "threshold": 3,
+      "valueFormat": "percent",
+      "help": "Include motor vehicle taxes.",
+      "display": "Uncollected taxes as a percent of budgeted taxes: {value}",
+      "exactlyMsg": "Uncollected taxes of exactly 3% of the budgeted amount would create an FPIC.",
+      "fpicWhen": "Uncollected taxes are 3% or more of budgeted ad valorem taxes",
+      "thresholdText": "Less than 3%",
+      "why": "Uncollected taxes above 3% of the budgeted amount can point to negative economic events, inaccurate budgeting or collection problems.",
+      "guideRef": "Table 3"
+    },
+    "reval": {
+      "id": "reval",
+      "number": 11,
+      "label": "Expected change in property value at next revaluation",
+      "shortLabel": "Expected change at next revaluation",
+      "plainLabel": "Do you expect values to fall at revaluation?",
+      "type": "yesNo",
+      "fpicAnswer": "yes",
+      "question": "Do you expect property values to decrease at your next revaluation?",
+      "fpicWhen": "You expect property values to decrease at the next revaluation",
+      "thresholdText": "No estimated decrease",
+      "why": "A decrease in property value could mean lost tax revenue.",
+      "guideRef": "Table 3",
+      "help": "This looks ahead, not at the audited year."
+    },
+    "budget": {
+      "id": "budget",
+      "number": 12,
+      "label": "Budget violations at the adopted ordinance level",
+      "shortLabel": "Budget violations",
+      "plainLabel": "Did spending exceed the adopted budget?",
+      "type": "yesNo",
+      "fpicAnswer": "yes",
+      "question": "Did any expenditure go over the adopted budget ordinance?",
+      "fpicWhen": "An expenditure went over the adopted budget ordinance",
+      "thresholdText": "No over-expenditures",
+      "why": "Spending over the ordinance may mean your purchase order, contract approval or payment process does not comply with G.S. Chapter 159.",
+      "guideRef": "Table 3, G.S. Chapter 159",
+      "help": "Overexpenditures at the level your ordinance sets."
+    },
+    "findings": {
+      "id": "findings",
+      "number": 13,
+      "label": "Material weaknesses, significant deficiencies, statutory violations and/or other audit finding items identified to be addressed in the FPIC response",
+      "shortLabel": "Audit findings to address in the response",
+      "plainLabel": "Serious audit findings",
+      "type": "yesNo",
+      "fpicAnswer": "yes",
+      "question": "Did the auditor report a material weakness, significant deficiency or statutory violation, or another finding that needs a response?",
+      "fpicWhen": "The audit reports a material weakness, significant deficiency, statutory violation or other finding that needs a response",
+      "thresholdText": "None",
+      "why": "20 NCAC 03 .0508 requires a response to each significant deficiency, material weakness and other audit finding. Those responses are presented to the governing body and addressed in your FPIC response.",
+      "guideRef": "Table 3, 20 NCAC 03 .0508",
+      "help": "Check the findings in your audit report."
+    },
+    "foAppointed": {
+      "id": "foAppointed",
+      "number": 14,
+      "label": "A finance officer or interim finance officer was appointed for the entire fiscal year",
+      "shortLabel": "Finance officer appointed all year",
+      "plainLabel": "Finance officer in place all year?",
+      "type": "yesNo",
+      "fpicAnswer": "no",
+      "question": "Did you have a finance officer or interim finance officer for the entire fiscal year?",
+      "fpicWhen": "You did not have a finance officer or interim finance officer for the entire fiscal year",
+      "thresholdText": "Yes",
+      "why": "Every local government and public authority must have a finance officer at all times.",
+      "guideRef": "Table 3, G.S. 159-24",
+      "help": "Required by G.S. 159-24."
+    },
+    "foBonded": {
+      "id": "foBonded",
+      "number": 15,
+      "label": "The finance officer or interim finance officer was bonded in an amount required by statute",
+      "shortLabel": "Finance officer bonded",
+      "plainLabel": "Finance officer properly bonded?",
+      "type": "yesNo",
+      "fpicAnswer": "no",
+      "question": "Was your finance officer properly bonded?",
+      "fpicWhen": "Your finance officer was not properly bonded",
+      "thresholdText": "Yes",
+      "why": "The finance officer must give a true accounting and faithful performance bond in the statutory amount.",
+      "guideRef": "Table 3, G.S. 159-29",
+      "help": "Required by G.S. 159-29: a bond of at least the greater of $50,000 or 10% of annually budgeted funds, up to $1,000,000."
+    },
+    "debt": {
+      "id": "debt",
+      "number": 16,
+      "label": "The unit had late debt service payments and/or did not comply with bond covenants",
+      "shortLabel": "Late debt service or covenant issues",
+      "plainLabel": "Late debt payments or covenant breaches",
+      "type": "yesNo",
+      "fpicAnswer": "yes",
+      "question": "Were any debt service payments late, or did you not comply with a bond covenant?",
+      "fpicWhen": "A debt service payment was late, or you did not comply with a bond covenant",
+      "thresholdText": "No",
+      "why": "Debt has payment schedules and covenants. Missing them can have negative financial effects and may point to financial or internal control issues.",
+      "guideRef": "Table 3",
+      "help": "Either one counts."
+    },
+    "auditorOther": {
+      "id": "auditorOther",
+      "number": 17,
+      "label": "Any other issues that affect the unit's fiscal health or internal controls",
+      "shortLabel": "Other issues from the auditor",
+      "plainLabel": "Other issues the auditor raised",
+      "type": "yesNo",
+      "fpicAnswer": "yes",
+      "question": "Did the auditor raise any other issue with your board?",
+      "fpicWhen": "The auditor raised another issue affecting fiscal health or internal controls",
+      "thresholdText": "No other issues",
+      "why": "The auditor may report issues that affect fiscal health or internal controls but that were not otherwise required to be disclosed. Your FPIC response should explain them.",
+      "guideRef": "Table 3",
+      "help": "Issues that were not required in the financial statements and did not rise to a significant deficiency or material weakness."
+    }
+  }
+}

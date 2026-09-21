@@ -1,0 +1,30 @@
+/* ═══════════════════════════════════════════════════
+   FPIC CALCULATOR PAGE — hosts the standalone calculator
+   (calculator styles live in /nc-fpic-calculator/style.css)
+   ═══════════════════════════════════════════════════ */
+
+.fpic-page {
+  padding: 0 var(--page-px) 72px;
+}
+
+.fpic-page-note {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 720px;
+  margin-top: 40px;
+}
+
+.fpic-page-note a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .fpic-page { padding-bottom: 48px; }
+}
+
+@media print {
+  .site-nav, .site-footer, .page-header, .fpic-page-note, .skip-link { display: none !important; }
+  .fpic-page { padding: 0; }
+}
