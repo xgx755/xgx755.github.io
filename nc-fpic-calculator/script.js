@@ -338,8 +338,9 @@
 
   /**
    * What-if for indicators 1, 2 and 3. The same appropriation is subtracted from
-   * fund balance available and from total fund balance; expenditures and the prior
-   * year-end balance are unchanged, so the change in fund balance drops by the same amount.
+   * fund balance available and from total fund balance; expenditures are unchanged.
+   * Indicator 2 depends on whether the appropriation pays for non-capital expenses,
+   * which the tool cannot know, so its scenario value is left as entered.
    */
   function applyAppropriationAll(inputs, appropriation, data) {
     var sc = {};
@@ -1260,13 +1261,10 @@
         [c.rowHeadroom, headroomText(base), headroomText(sc)]
       ];
       var b2 = w.baseline.apprFb;
-      var s2 = w.scenario.apprFb;
       var b3 = w.baseline.totalFb;
       var s3 = w.scenario.totalFb;
-      var withTotals = b2.status !== 'unchecked' && s2.status !== 'unchecked';
+      var withTotals = b3.status !== 'unchecked' && s3.status !== 'unchecked';
       if (withTotals) {
-        rows.push([c.whatIfRowChange, formatDollars(b2.value), formatDollars(s2.value)]);
-        rows.push([c.whatIfRowResult2, resultCell(b2), resultCell(s2), true]);
         rows.push([c.whatIfRowTotalFb, formatDollars(b3.value), formatDollars(s3.value)]);
         rows.push([c.whatIfRowResult3, resultCell(b3), resultCell(s3), true]);
       }
@@ -1276,10 +1274,9 @@
       if (!base.isFpic && sc.isFpic) msg = fill(c.whatIfCross, { before: before, after: after });
       else if (!base.isFpic) msg = fill(c.whatIfShrink, { before: before, after: after });
       else msg = fill(c.whatIfGrow, { before: before, after: after });
-      if (withTotals) {
-        if (b2.status === 'ok' && s2.status === 'fpic') msg += ' ' + c.whatIfRow2Cross;
-        if (b3.status === 'ok' && s3.status === 'fpic') msg += ' ' + c.whatIfRow3Cross;
-      }
+      if (withTotals && b3.status === 'ok' && s3.status === 'fpic') msg += ' ' + c.whatIfRow3Cross;
+      // Indicator 2 turns on what the appropriation pays for, which the tool cannot know, so it is flagged as a note.
+      if (b2.status !== 'fpic') msg += ' ' + c.whatIfRow2Note;
       state.whatIfMsg = msg;
       var note = sc.fba < 0 && appr.value > base.fba ? '<p class="fpic-note">' + esc(c.whatIfOverdraw) + '</p>' : '';
       var tbody = rows

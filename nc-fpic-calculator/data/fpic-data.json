@@ -1,6 +1,6 @@
 {
-  "_readme": "All thresholds, comparators, source links, dates and interface copy live in this file. When the LGC changes a threshold or the wording changes, edit only this file. Placeholders in {braces} are filled in by script.js. Each indicator states the comparison that CREATES an FPIC (the guide states thresholds in the avoid-an-FPIC direction). Indicator types: bandedPercent, percentOfBase, value, yesNo.",
-  "version": "0.5.0",
+  "_readme": "All thresholds, comparators, source links, dates and interface copy live in this file. When the LGC changes a threshold or Kara changes wording, edit only this file. Placeholders in {braces} are filled in by script.js. Each indicator states the comparison that CREATES an FPIC (the guide states thresholds in the avoid-an-FPIC direction). Indicator types: bandedPercent, percentOfBase, value, yesNo.",
+  "version": "0.6.0",
   "thresholdsAsOf": "September 2026",
   "thresholdsCheckedOn": "September 19, 2026",
   "draftNotice": "",
@@ -96,7 +96,7 @@
       "exp": "20,000,000",
       "fba": "5,400,000",
       "totalFb": "8,100,000",
-      "priorFb": "8,900,000",
+      "apprNonCap": "800,000",
       "cari": "0.62",
       "oni": "210,000",
       "ca": "1,450,000",
@@ -246,11 +246,8 @@
     "tableCaption": "Results for all indicators",
     "tableNoValue": "—",
     "whatIfRowTotalFb": "Total fund balance",
-    "whatIfRowChange": "Change in total fund balance",
     "whatIfRowResult1": "Result, indicator 1",
-    "whatIfRowResult2": "Result, indicator 2",
     "whatIfRowResult3": "Result, indicator 3",
-    "whatIfRow2Cross": "The appropriation would also create an FPIC on indicator 2, appropriated fund balance, because total fund balance would fall from the prior year-end.",
     "whatIfRow3Cross": "The appropriation would also create an FPIC on indicator 3, because total fund balance would be 0 or less.",
     "whatIfSummary": "Test a budget decision",
     "trendSummary": "See your trend",
@@ -376,7 +373,8 @@
     "resultsNaNote": "Indicators 4 to 8 (water and sewer) are marked not applicable.",
     "reviewButton": "Review",
     "addButton": "Add",
-    "printHelp": "One page for your manager or board."
+    "printHelp": "One page for your manager or board.",
+    "whatIfRow2Note": "If any of this appropriation pays for non-capital expenses, it would also create an FPIC on indicator 2."
   },
   "groups": [
     {
@@ -438,11 +436,10 @@
       "signed": true,
       "help": "Enter fund balance available from your audit. The tool does not calculate it."
     },
-    "priorFb": {
-      "label": "Total fund balance at the end of the prior year",
+    "apprNonCap": {
+      "label": "Fund balance appropriated for non-capital expenses",
       "kind": "money",
-      "signed": true,
-      "help": "We compare it with this year's total fund balance (row 3)."
+      "help": "Enter 0 if none was used, or if all of it paid for capital expenses."
     },
     "totalFb": {
       "label": "General Fund total fund balance at year-end",
@@ -523,25 +520,24 @@
     "apprFb": {
       "id": "apprFb",
       "number": 2,
-      "label": "Appropriated fund balance (change in fund balance)",
-      "shortLabel": "Appropriated fund balance (change)",
-      "plainLabel": "Did total fund balance grow this year?",
+      "label": "Appropriated fund balance (for non-capital expenses)",
+      "shortLabel": "Fund balance appropriated for non-capital expenses",
+      "plainLabel": "Was fund balance used for non-capital expenses?",
       "type": "value",
       "inputs": [
-        "priorFb"
+        "apprNonCap"
       ],
       "uses": [
-        "totalFb",
-        "priorFb"
+        "apprNonCap"
       ],
-      "formula": "difference",
-      "comparator": "lte",
+      "formula": "single",
+      "comparator": "gt",
       "threshold": 0,
       "valueFormat": "dollars",
-      "display": "Change in total fund balance: {value}",
-      "exactlyMsg": "No change in total fund balance would create an FPIC. The change must be positive.",
-      "fpicWhen": "Total fund balance did not grow from the prior year-end (a change of 0 or less)",
-      "thresholdText": "Positive change",
+      "display": "Fund balance appropriated for non-capital expenses: {value}",
+      "exactlyMsg": "An appropriation of $0 does not create an FPIC.",
+      "fpicWhen": "Fund balance appropriated for non-capital expenses is greater than $0",
+      "thresholdText": "$0",
       "why": "Appropriating fund balance to cover operating losses can point to an ongoing gap. If the pattern continues, your available reserves decline.",
       "guideRef": "Table 1"
     },

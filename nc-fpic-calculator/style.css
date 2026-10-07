@@ -1572,3 +1572,100 @@
   .fpic-head { padding-bottom: 2px; }
   .fpic-toolbody { gap: 3px !important; }
 }
+
+/* ================================================================== */
+/* v0.6: visual hierarchy. Question > field label > help; results stand */
+/* out; FPIC rows marked at a glance; Continue always within reach.     */
+/* ================================================================== */
+
+.fpic-calc { --f-card-pad: 24px; }
+@container fpic (max-width: 560px) { .fpic-card { --f-card-pad: 16px; } }
+
+/* Step titles get focus programmatically on each step change. No box around them. */
+.fpic-step__title:focus-visible { outline: none; }
+
+/* Step header: title leads, kicker and intro recede */
+.fpic-kicker { font-size: 13px; letter-spacing: 0.02em; text-transform: uppercase; }
+.fpic-step__title { font-size: 28px; }
+
+/* Indicator question is the strongest line in each row */
+.fpic-row { position: relative; gap: 14px 12px; }
+.fpic-row__name { font-size: 18px; }
+.fpic-row__num { color: var(--unc-white); background: var(--unc-bolin-creek); }
+
+/* Field labels sit one step below the question; help sits below the label */
+.fpic-row .fpic-label { font-size: 15px; font-weight: 600; }
+.fpic-row .fpic-field { gap: 6px; }
+.fpic-row .fpic-help { font-size: 14px; }
+
+/* Number inputs sized for numbers, not the full card width */
+.fpic-row__inputs { grid-template-columns: repeat(auto-fill, minmax(220px, 340px)); gap: 16px 24px; }
+.fpic-money--ratio .fpic-input { padding-left: 14px; }
+.fpic-input:focus { border-color: var(--unc-navy); box-shadow: 0 0 0 3px rgba(75, 156, 211, 0.3); outline: none; }
+.fpic-input:focus-visible { outline: none; }
+
+/* The computed result is what people came for: make it read as an answer */
+.fpic-row__value {
+  justify-self: start;
+  padding: 8px 14px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--unc-navy);
+  background: var(--f-bg);
+  border-radius: 8px;
+  font-variant-numeric: tabular-nums;
+}
+.fpic-row[data-status="fpic"] > .fpic-row__value { background: var(--f-amber-tint); }
+.fpic-row[data-status="ok"] > .fpic-row__value { background: var(--f-pine-tint); }
+.fpic-row__value--prompt,
+.fpic-row[data-status] > .fpic-row__value--prompt { padding: 0; font-weight: 400; color: var(--f-muted); background: none; }
+
+/* Rows that would create an FPIC carry an amber edge so they stand out while scrolling */
+.fpic-row[data-status="fpic"]::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  bottom: 16px;
+  left: calc(-1 * var(--f-card-pad));
+  width: 4px;
+  background: var(--unc-tulip-poplar);
+  border-radius: 0 3px 3px 0;
+}
+.fpic-row[data-status="fpic"]:first-child::before { top: 0; }
+.fpic-row[data-status="fpic"]:last-child::before { bottom: 0; }
+
+/* Details link: available, but quieter than the inputs */
+.fpic-more__btn { min-height: 28px; font-size: 14px; color: var(--f-muted); }
+.fpic-more__icon { width: 20px; height: 20px; font-size: 13px; }
+
+/* Back / Continue stay on screen on long steps */
+.fpic-nav {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  align-items: center;
+  margin-inline: -16px;
+  padding: 12px 16px;
+  background: rgba(244, 247, 251, 0.94);
+  border-top: 1px solid var(--f-line);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.fpic-nav [data-action="next"] { min-width: 160px; }
+
+/* Results: the headline and the FPIC list lead; the rest steps back */
+.fpic-hero__head { font-size: clamp(26px, 3.8vw, 34px); }
+.fpic-res > .fpic-h { font-size: 20px; }
+.fpic-fcard__msg { font-size: 16px; }
+.fpic-fold > summary { font-size: 16px; }
+.fpic-go { padding-top: 8px; border-top: 1px solid var(--f-line); }
+
+/* Footer: reference material, kept out of the way */
+.fpic-foot { margin-top: 8px; font-size: 13px; }
+.fpic-foot__disclaimer { font-weight: 600; }
+
+@media print {
+  .fpic-row[data-status="fpic"]::before { display: none; }
+  .fpic-nav { position: static; }
+}
+.fpic-toolbody > .fpic-noprint .fpic-field { max-width: 340px; }
