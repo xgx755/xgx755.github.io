@@ -16,12 +16,9 @@
   <style>
     html, body { margin: 0; padding: 0; background: #ffffff; min-height: 100%; }
     .fpic-app { min-height: 100vh; padding: 24px 0 48px; box-sizing: border-box; }
-    .fpic-credit {
-      max-width: 1120px; margin: 32px auto 0; padding: 0 16px;
-      font: 13px/1.6 "Open Sans", "FPIC Open Sans", Arial, sans-serif; color: #5b6670;
-    }
-    .fpic-credit a { color: #007fae; text-underline-offset: 2px; }
-    @media print { .fpic-credit { display: none; } .fpic-app { padding: 0; } }
+    /* Slightly smaller than the default size for easier use on the site */
+    .fpic-app .fpic-calc { zoom: 0.88; }
+    @media print { .fpic-app { padding: 0; } }
   </style>
 </head>
 <body>
@@ -29,7 +26,6 @@
     <div class="fpic-calc" data-fpic-calculator>
       <noscript>This calculator needs JavaScript to run. Please enable JavaScript in your browser and reload the page.</noscript>
     </div>
-    <p class="fpic-credit">Built by <a href="/">Zane Davis</a>. Everything runs in your browser; nothing you enter is saved or sent anywhere.</p>
   </main>
 
   <!-- Load threshold data (single source: data/fpic-data.json), then start the calculator. -->
